@@ -5,68 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Book Summaries</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            background-color: #f4f4f4;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-        }
-        #book-list {
-            width: 30%;
-            background-color: #ffffff;
-            padding: 20px;
-            box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        #book-list h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        .book-item {
-            margin: 10px 0;
-            cursor: pointer;
-        }
-        .book-item:hover {
-            color: blue;
-        }
-        #book-summary {
-            width: 70%;
-            padding: 20px;
-            background-color: #fff;
-        }
-        #book-summary h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
-        #book-summary p {
-            font-size: 16px;
-            line-height: 1.6;
-        }
+        /* Your CSS here */
     </style>
 </head>
 <body>
-    <div id="book-list">
-        <h2>Select a Book</h2>
-        <!-- The book titles will be dynamically loaded here -->
-    </div>
-
-    <div id="book-summary">
-        <h2>Book Summary</h2>
-        <p>Select a book to see the summary.</p>
-    </div>
+    <div id="book-list"></div>
+    <div id="book-summary"></div>
 
     <script>
-        let summaries = [];
+        // Directly embed the JSON into the HTML file
+        const summaries = [
+            {
+                "title": "Rich Dad Poor Dad",
+                "summary": "<p>Core idea...</p>"
+            },
+            {
+                "title": "Sapiens",
+                "summary": "<p>This book explores...</p>"
+            },
+            // More book summaries...
+        ];
 
-        // Fetch book summaries from the external JSON file
-        fetch('book_summaries.json')
-            .then(response => response.json())
-            .then(data => {
-                summaries = data;
-                loadBookList();
-            });
-
+        // JavaScript to display the summaries (same as before)
         function loadBookList() {
             const bookListDiv = document.getElementById('book-list');
             summaries.forEach((book, index) => {
@@ -80,13 +40,13 @@
 
         function showSummary(index) {
             const book = summaries[index];
-            if (book) {
-                document.getElementById("book-summary").innerHTML = `
-                    <h2>${book.title}</h2>
-                    ${book.summary}
-                `;
-            }
+            document.getElementById("book-summary").innerHTML = `
+                <h2>${book.title}</h2>
+                ${book.summary}
+            `;
         }
+
+        loadBookList();
     </script>
 </body>
 </html>
