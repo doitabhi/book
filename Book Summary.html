@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Summaries</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        #bookList {
+            width: 25%;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        #bookList ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #bookList ul li {
+            padding: 10px 0;
+            cursor: pointer;
+            border-bottom: 1px solid white;
+        }
+        #bookList ul li:hover {
+            background-color: #34495e;
+        }
+        #summary {
+            width: 75%;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: scroll;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+<div id="bookList">
+    <ul>
+        <li data-book="richDadPoorDad">Rich Dad Poor Dad</li>
+        <li data-book="sapiens">Sapiens</li>
+        <li data-book="ravikant">The Almanack of Naval Ravikant</li>
+        <li data-book="will">Will by Will Smith</li>
+        <li data-book="alchemist">The Alchemist</li>
+        <!-- Additional books -->
+        <li data-book="hyperFocus">Hyper Focus</li>
+        <li data-book="egoEnemy">Ego is the Enemy</li>
+        <li data-book="limitless">Limitless</li>
+        <li data-book="beUseful">Be Useful</li>
+        <li data-book="powerFocus">The Power of Unwavering Focus</li>
+        <li data-book="drive">Drive</li>
+        <li data-book="tribeMentors">Tribe of Mentors</li>
+        <li data-book="rocketScientist">Think Like a Rocket Scientist</li>
+        <li data-book="makeTime">Make Time</li>
+        <li data-book="startWithWhy">Start With Why</li>
+        <li data-book="atomicHabits">Atomic Habits</li>
+        <li data-book="compoundEffect">The Compound Effect</li>
+    </ul>
+</div>
+
+<div id="summary">
+    <h2>Select a book to see the summary</h2>
+    <div id="bookSummary"></div>
+</div>
+
+<script>
+    const bookSummaries = {
+        richDadPoorDad: `<h2>Rich Dad Poor Dad</h2>
+        <p><strong>Core Idea:</strong></p>
+        <p>The book contrasts the financial philosophies of Kiyosaki's "two dads": his Rich Dad and Poor Dad. It explores lessons on building wealth and financial independence, emphasizing the need for financial education and the importance of investing in assets instead of working for money.</p>
+        <p><strong>Key Lessons:</strong></p>
+        <ul>
+            <li>Understand the difference between assets and liabilities, and focus on acquiring assets.</li>
+            <li>Invest in financial education outside of traditional schooling.</li>
+            <li>Avoid the "rat race" of working for a paycheck without building wealth through investments.</li>
+            <li>Work to learn, not just to earn, and acquire useful skills like sales, accounting, and marketing.</li>
+            <li>Use corporations and tax strategies to protect and grow wealth.</li>
+            <li>Overcome the fear of taking financial risks, and embrace failure as a learning experience.</li>
+        </ul>
+        <p><strong>Application in Real Life:</strong> Educate yourself financially, track your assets and liabilities, invest early, create passive income, and take calculated risks to build wealth.</p>`,
+
+        sapiens: `<h2>Sapiens</h2>
+        <p><strong>Summary:</strong> Sapiens by Yuval Noah Harari takes readers on a journey through the history of humankind, from the evolution of archaic human species to modern-day homo sapiens. It discusses the cognitive revolution, agricultural revolution, and scientific revolution, highlighting their impact on society, culture, and humanity's role in the world.</p>`,
+
+        ravikant: `<h2>The Almanack of Naval Ravikant</h2>
+        <p><strong>Summary:</strong> This book compiles Naval Ravikant's wisdom on wealth, happiness, and success. He emphasizes the importance of leverage, compounding, and working toward financial freedom. Naval stresses focusing on personal growth, learning how to think critically, and leveraging technology to create value at scale.</p>`,
+
+        will: `<h2>Will by Will Smith</h2>
+        <p><strong>Summary:</strong> Will Smith's autobiography, "Will," provides insight into his rise to fame, lessons from his childhood, and the mental and emotional challenges he faced throughout his life. It focuses on his drive for success, his work ethic, and the personal sacrifices he made for his career.</p>`,
+
+        alchemist: `<h2>The Alchemist</h2>
+        <p><strong>Summary:</strong> Paulo Coelho’s "The Alchemist" follows Santiago, a young shepherd, on a journey to find a hidden treasure. Along the way, he learns life lessons about following one's dreams, listening to the heart, and recognizing the value of the journey itself, not just the destination.</p>`,
+        
+        
+        hyperFocus: `<h2>Hyper Focus</h2>
+        <p>Chris Bailey’s "Hyperfocus" is a guide to managing your attention in a world filled with distractions. It explains how to enter a state of deep focus and productivity, as well as the importance of intentionally unfocusing for creativity and rest.</p>`,
+
+        egoEnemy: `<h2>Ego is the Enemy</h2>
+        <p>Ryan Holiday’s "Ego is the Enemy" teaches that ego is the internal obstacle to personal and professional success. By keeping our ego in check, we can focus on self-improvement, humility, and perseverance.</p>`,
+
+        limitless: `<h2>Limitless</h2>
+        <p>Jim Kwik’s "Limitless" is a book that provides strategies to unlock your brain’s potential and improve learning, memory, and focus. It introduces tools for accelerated learning and overcoming mental blocks.</p>`,
+
+ 	beUseful: `<h2>Be Useful</h2>
+        <p>By Arnold.</p>`,
+
+        // You can add more summaries here...
+    };
+
+    // Function to display the summary when a book is clicked
+    document.querySelectorAll("#bookList ul li").forEach(item => {
+        item.addEventListener("click", () => {
+            const bookKey = item.getAttribute("data-book");
+            document.getElementById("bookSummary").innerHTML = bookSummaries[bookKey] || "<p>Summary not available.</p>";
+        });
+    });
+</script>
+
+</body>
+</html>
