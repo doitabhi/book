@@ -1,0 +1,15 @@
+[
+    {
+        "title": "Rich Dad Poor Dad",
+        "summary": "<p><strong>Core Idea:</strong>...</p>"
+    },
+    {
+        "title": "Sapiens",
+        "summary": "<p>This book explores...</p>"
+    },
+    {
+        "title": "The Almanack of Naval Ravikant",
+        "summary": "<p>A compilation of Naval Ravikant's thoughts...</p>"
+    }
+    // Add more books as needed
+]
